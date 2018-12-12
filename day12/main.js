@@ -44,7 +44,7 @@ function part1(lines) {
   let { state, rules } = parseInput(lines);
   let min = 0, max = state.length;
 
-  for (let gen = 0; gen < 40; gen++) {
+  for (let gen = 0; gen < 150; gen++) {
     let newState = [];
     let newMin = min;
     let newMax = max;
@@ -74,7 +74,7 @@ function part1(lines) {
     min = newMin;
     max = newMax;
 
-    console.log(gen, state.reduce((r, v, i) => r + (v ? i + min : 0), 0), state.reduce((r, v) => r + (v ? 1 : 0), 0));
+    // console.log(gen, state.reduce((r, v, i) => r + (v ? i + min : 0), 0), state.reduce((r, v) => r + (v ? 1 : 0), 0));
   }
 
   return state.reduce((r, v, i) => r + (v ? i + min : 0), 0);
@@ -86,7 +86,7 @@ function part2(lines) {
   const sum = gen120.reduce((r, v, i) => r + (v === '#' ? i : 0), 0);
   const count = gen120.reduce((r, v) => r + (v === '#' ? 1 : 0), 0);
 
-  return (50000000000 - 120) * count + sum;
+  return (50000000000 - 120 - 1) * count + sum;
 }
 
 function main() {
